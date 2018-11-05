@@ -7,17 +7,20 @@ var diffImage = require('./utils.js').diffImage;
 
 var appPath = path.resolve(process.env.APP_PATH);
 
+//options for IOS
 var iOSOpts = {
   deviceName: 'iPhone 5s',
   platformName: 'iOS',
   app: appPath
 };
 
+//options for Android
 var androidOpts = {
   platformName: 'android',
   app: appPath
 };
 
+//Getting the correct options based on the OS
 var wd = require('webdriver-client')(process.env.platform === 'android' ? androidOpts : iOSOpts);
 
 describe('base', function() {
